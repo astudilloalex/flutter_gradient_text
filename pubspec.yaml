@@ -1,6 +1,6 @@
 name: simple_gradient_text
 description: Create fast and simple gradient texts, whether linear or radial, you just decide the colors and the text to display, very easy.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/astudilloalex/flutter_gradient_text 
 
 environment:
