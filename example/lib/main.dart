@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: GradientText(
             'Gradient Text Example',
+            style: TextStyle(
+              fontSize: 40.0,
+            ),
             colors: [
               Colors.blue,
               Colors.red,
