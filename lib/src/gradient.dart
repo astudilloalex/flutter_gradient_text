@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_text/src/constants.dart';
+import 'package:simple_gradient_text/src/constants.dart';
 
 /// A gradient text.
 class GradientText extends StatelessWidget {
