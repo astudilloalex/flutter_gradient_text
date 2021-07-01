@@ -1,14 +1,22 @@
 # gradient_text
 
-A new Flutter package project.
+Create gradient texts simply and quickly.
 
 ## Getting Started
+[![pub package](https://pub.dev/static/img/pub-dev-logo-2x.png?hash=umitaheu8hl7gd3mineshk2koqfngugi)](https://pub.dev/packages/simple_gradient_text)
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+### Add a gradient text
+```dart 
+GradientText(
+    'Gradient Text Example',
+    style: TextStyle(
+        fontSize: 40.0,
+    ),
+    colors: [
+        Colors.blue,
+        Colors.red,
+        Colors.teal,
+    ],
+),
+```
+![Flutter Gradient Text Example](https://i.postimg.cc/C1SrgR1n/gradient-text-example.jpg)
