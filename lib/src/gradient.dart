@@ -15,6 +15,10 @@ class GradientText extends StatelessWidget {
   /// How visual overflow should be handled.
   final TextOverflow? overflow;
 
+  /// The radius of the gradient, as a fraction of the shortest side
+  /// of the paint box.
+  final double radius;
+
   /// If non-null, the style to use for this text.
   final TextStyle? style;
 
@@ -30,6 +34,7 @@ class GradientText extends StatelessWidget {
     this.gradientDirection = GradientDirection.ltr,
     this.gradientType = GradientType.linear,
     this.overflow,
+    this.radius = 1.0,
     this.style,
     this.textAlign,
   })  : assert(
@@ -79,6 +84,8 @@ class GradientText extends StatelessWidget {
 
   Shader _createShader(Rect bounds) {
     switch (gradientType) {
+      case GradientType.radial:
+        return _radialGradient.createShader(bounds);
       default:
         return _linearGradient.createShader(bounds);
     }
@@ -90,6 +97,13 @@ class GradientText extends StatelessWidget {
       colors: colors,
       end: _direction('end'),
       tileMode: TileMode.clamp,
+    );
+  }
+
+  Gradient get _radialGradient {
+    return RadialGradient(
+      colors: colors,
+      radius: radius,
     );
   }
 

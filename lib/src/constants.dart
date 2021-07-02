@@ -2,6 +2,9 @@
 enum GradientType {
   /// A linear gradient.
   linear,
+
+  /// A radial gradient.
+  radial,
 }
 
 /// Direction to apply in the gradient.
