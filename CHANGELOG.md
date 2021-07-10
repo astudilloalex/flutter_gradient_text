@@ -1,3 +1,6 @@
+## 1.2.1
+* Update project with Flutter best practices
+
 ## 1.2.0
 * Add radial gradient to text with `gradientType: GradientType.radial` view example for more information
 * Update example
