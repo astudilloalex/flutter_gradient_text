@@ -28,23 +28,21 @@ class GradientText extends StatelessWidget {
   /// How the text should be aligned horizontally.
   final TextAlign? textAlign;
 
-  GradientText(
-    this.text, {
+  const GradientText(
+    String this.text, {
     required this.colors,
     this.gradientDirection = GradientDirection.ltr,
     this.gradientType = GradientType.linear,
+    Key? key,
     this.overflow,
     this.radius = 1.0,
     this.style,
     this.textAlign,
   })  : assert(
-          text != null,
-          'A non-null String must be provided to a Text widget.',
-        ),
-        assert(
           colors.length >= 2,
           'Colors list must have at least two colors',
-        );
+        ),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +94,6 @@ class GradientText extends StatelessWidget {
       begin: _direction('begin'),
       colors: colors,
       end: _direction('end'),
-      tileMode: TileMode.clamp,
     );
   }
 
@@ -109,6 +106,6 @@ class GradientText extends StatelessWidget {
 
   TextStyle get _style {
     if (style != null) return style!.copyWith(color: Colors.white);
-    return TextStyle(color: Colors.white);
+    return const TextStyle(color: Colors.white);
   }
 }
