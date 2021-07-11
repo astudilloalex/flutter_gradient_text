@@ -1,3 +1,6 @@
+## 1.2.2
+* Remove unused dependencies
+
 ## 1.2.1
 * Update project with Flutter best practices
 
