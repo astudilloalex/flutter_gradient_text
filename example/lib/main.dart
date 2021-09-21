@@ -3,11 +3,13 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 // Main method, init the app
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 // Main app container
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,10 +21,10 @@ class MyApp extends StatelessWidget {
             children: [
               GradientText(
                 'Gradient Text Example',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 40.0,
                 ),
-                colors: [
+                colors: const [
                   Colors.blue,
                   Colors.red,
                   Colors.teal,
@@ -32,12 +34,12 @@ class MyApp extends StatelessWidget {
               // Use Radius when use radial gradient text
               GradientText(
                 'Gradient Text Example',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 40.0,
                 ),
                 gradientType: GradientType.radial,
                 radius: 2.5,
-                colors: [
+                colors: const [
                   Colors.blue,
                   Colors.red,
                   Colors.teal,
