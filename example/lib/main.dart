@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
-// Main method, init the app
 void main() {
   runApp(const MyApp());
 }
 
-// Main app container
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 

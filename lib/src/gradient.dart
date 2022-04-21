@@ -10,7 +10,7 @@ class GradientText extends StatelessWidget {
   final GradientDirection? gradientDirection;
 
   /// The type of gradient to apply.
-  final GradientType? gradientType;
+  final GradientType gradientType;
 
   /// How visual overflow should be handled.
   final TextOverflow? overflow;
@@ -23,13 +23,13 @@ class GradientText extends StatelessWidget {
   final TextStyle? style;
 
   /// The text to display.
-  final String? text;
+  final String text;
 
   /// How the text should be aligned horizontally.
   final TextAlign? textAlign;
 
   const GradientText(
-    String this.text, {
+    this.text, {
     required this.colors,
     this.gradientDirection = GradientDirection.ltr,
     this.gradientType = GradientType.linear,
@@ -45,67 +45,50 @@ class GradientText extends StatelessWidget {
         super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return ShaderMask(
-      shaderCallback: _createShader,
+      shaderCallback: (final Rect bounds) {
+        switch (gradientType) {
+          case GradientType.linear:
+            final Map<String, Alignment> map = {};
+            switch (gradientDirection) {
+              case GradientDirection.rtl:
+                map['begin'] = Alignment.centerRight;
+                map['end'] = Alignment.centerLeft;
+                break;
+              case GradientDirection.ttb:
+                map['begin'] = Alignment.topCenter;
+                map['end'] = Alignment.bottomCenter;
+                break;
+              case GradientDirection.btt:
+                map['begin'] = Alignment.bottomCenter;
+                map['end'] = Alignment.topCenter;
+                break;
+              default:
+                map['begin'] = Alignment.centerLeft;
+                map['end'] = Alignment.centerRight;
+                break;
+            }
+            return LinearGradient(
+              begin: map['begin']!,
+              colors: colors,
+              end: map['end']!,
+            ).createShader(bounds);
+          case GradientType.radial:
+            return RadialGradient(
+              colors: colors,
+              radius: radius,
+            ).createShader(bounds);
+        }
+      },
       child: Text(
-        text!,
+        text,
         overflow: overflow,
-        style: _style,
+        style: style != null
+            ? style?.copyWith(color: Colors.white)
+            : const TextStyle(color: Colors.white),
         textAlign: textAlign,
       ),
     );
-  }
-
-  Alignment _direction(String key) {
-    final Map<String, Alignment> map = {};
-    switch (gradientDirection) {
-      case GradientDirection.rtl:
-        map['begin'] = Alignment.centerRight;
-        map['end'] = Alignment.centerLeft;
-        break;
-      case GradientDirection.ttb:
-        map['begin'] = Alignment.topCenter;
-        map['end'] = Alignment.bottomCenter;
-        break;
-      case GradientDirection.btt:
-        map['begin'] = Alignment.bottomCenter;
-        map['end'] = Alignment.topCenter;
-        break;
-      default:
-        map['begin'] = Alignment.centerLeft;
-        map['end'] = Alignment.centerRight;
-        break;
-    }
-    return map[key]!;
-  }
-
-  Shader _createShader(Rect bounds) {
-    switch (gradientType) {
-      case GradientType.radial:
-        return _radialGradient.createShader(bounds);
-      default:
-        return _linearGradient.createShader(bounds);
-    }
-  }
-
-  Gradient get _linearGradient {
-    return LinearGradient(
-      begin: _direction('begin'),
-      colors: colors,
-      end: _direction('end'),
-    );
-  }
-
-  Gradient get _radialGradient {
-    return RadialGradient(
-      colors: colors,
-      radius: radius,
-    );
-  }
-
-  TextStyle get _style {
-    if (style != null) return style!.copyWith(color: Colors.white);
-    return const TextStyle(color: Colors.white);
   }
 }

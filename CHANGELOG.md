@@ -1,3 +1,7 @@
+## 1.2.3
+* Change lint package for strict rules. 
+* Min changes in README.md
+
 ## 1.2.2
 * Remove unused dependencies
 
