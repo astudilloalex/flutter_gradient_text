@@ -12,6 +12,7 @@ Only add [simple_gradient_text](https://pub.dev/packages/simple_gradient_text) p
 dependencies:
   simple_gradient_text: 1.2.3
 ```
+Then run `flutter get`.
 
 ### **Add a linear gradient text**
 ```dart 
