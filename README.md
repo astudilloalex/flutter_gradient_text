@@ -14,6 +14,8 @@ dependencies:
 ```
 Then run `flutter get`.
 
+**Note**: You can add directly - run `flutter pub add simple_gradient_text` in your project.
+
 ### **Add a linear gradient text**
 ```dart 
 GradientText(
