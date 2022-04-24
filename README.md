@@ -1,4 +1,6 @@
 # gradient_text
+Requires Flutter `>=2.5.0`
+
 Create gradient texts simply and quickly.
 
 ## Getting Started
