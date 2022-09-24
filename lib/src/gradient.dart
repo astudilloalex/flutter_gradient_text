@@ -28,13 +28,12 @@ class GradientText extends StatelessWidget {
   /// How the text should be aligned horizontally.
   final TextAlign? textAlign;
 
-
   /// How the text should be scaled.
   final double? textScaleFactor;
-  
+
   /// Maximum number of lines for the text to span.
   final int? maxLines;
-  
+
   const GradientText(
     this.text, {
     required this.colors,
@@ -45,7 +44,7 @@ class GradientText extends StatelessWidget {
     this.radius = 1.0,
     this.style,
     this.textAlign,
-    this.textScaleFactor
+    this.textScaleFactor,
     this.maxLines,
   })  : assert(
           colors.length >= 2,
@@ -96,7 +95,7 @@ class GradientText extends StatelessWidget {
         style: style != null
             ? style?.copyWith(color: Colors.white)
             : const TextStyle(color: Colors.white),
-        textScaleFactor:textScaleFactor,
+        textScaleFactor: textScaleFactor,
         textAlign: textAlign,
         maxLines: maxLines,
       ),

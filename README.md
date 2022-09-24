@@ -10,7 +10,7 @@ Only add [simple_gradient_text](https://pub.dev/packages/simple_gradient_text) p
 
 ```yaml
 dependencies:
-  simple_gradient_text: 1.2.3
+  simple_gradient_text: 1.2.4
 ```
 Then run `flutter get`.
 
