@@ -1,3 +1,8 @@
+## 1.2.4
+* Update dependencies.
+* Add Max Lines. Thanks `sbis04`
+* Add Text Scale Factor. Thanks `jeyremy`
+
 ## 1.2.3
 * Requires Dart "`>=2.16.0 <3.0.0`"
 * Change lint package for strict rules. 
