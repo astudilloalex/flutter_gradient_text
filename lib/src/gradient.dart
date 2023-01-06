@@ -33,6 +33,10 @@ class GradientText extends StatelessWidget {
 
   /// Maximum number of lines for the text to span.
   final int? maxLines;
+  
+  /// Gradient stops
+  final List<double>? stops;
+
 
   const GradientText(
     this.text, {
@@ -44,6 +48,7 @@ class GradientText extends StatelessWidget {
     this.radius = 1.0,
     this.style,
     this.textAlign,
+    this.stops,
     this.textScaleFactor,
     this.maxLines,
   })  : assert(
@@ -80,6 +85,7 @@ class GradientText extends StatelessWidget {
             return LinearGradient(
               begin: map['begin']!,
               colors: colors,
+              stops: stops,
               end: map['end']!,
             ).createShader(bounds);
           case GradientType.radial:
