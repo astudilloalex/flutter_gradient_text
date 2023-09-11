@@ -1,18 +1,18 @@
 # gradient_text
-Requires Flutter `>=2.5.0`
+Requires Flutter `>=3.0.0`
 
 Create gradient texts simply and quickly.
 
 ## Getting Started
-[![pub package](https://pub.dev/static/img/pub-dev-logo-2x.png?hash=umitaheu8hl7gd3mineshk2koqfngugi)](https://pub.dev/packages/simple_gradient_text)
+[![pub package](https://pub.dev/static/hash-v7cgjij4/img/pub-dev-logo.svg)](https://pub.dev/packages/simple_gradient_text)
 
 Only add [simple_gradient_text](https://pub.dev/packages/simple_gradient_text) package to your pubspec.yaml.
 
 ```yaml
 dependencies:
-  simple_gradient_text: 1.2.4
+  simple_gradient_text: 1.3.0
 ```
-Then run `flutter get`.
+Then run `flutter get --no-example`.
 
 **Note**: You can add directly - run `flutter pub add simple_gradient_text` in your project.
 

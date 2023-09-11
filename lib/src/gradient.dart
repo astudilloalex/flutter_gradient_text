@@ -33,17 +33,16 @@ class GradientText extends StatelessWidget {
 
   /// Maximum number of lines for the text to span.
   final int? maxLines;
-  
+
   /// Gradient stops
   final List<double>? stops;
-
 
   const GradientText(
     this.text, {
     required this.colors,
     this.gradientDirection = GradientDirection.ltr,
     this.gradientType = GradientType.linear,
-    Key? key,
+    super.key,
     this.overflow,
     this.radius = 1.0,
     this.style,
@@ -51,16 +50,15 @@ class GradientText extends StatelessWidget {
     this.stops,
     this.textScaleFactor,
     this.maxLines,
-  })  : assert(
+  }) : assert(
           colors.length >= 2,
           'Colors list must have at least two colors',
-        ),
-        super(key: key);
+        );
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     return ShaderMask(
-      shaderCallback: (final Rect bounds) {
+      shaderCallback: (Rect bounds) {
         switch (gradientType) {
           case GradientType.linear:
             final Map<String, Alignment> map = {};
@@ -68,19 +66,15 @@ class GradientText extends StatelessWidget {
               case GradientDirection.rtl:
                 map['begin'] = Alignment.centerRight;
                 map['end'] = Alignment.centerLeft;
-                break;
               case GradientDirection.ttb:
                 map['begin'] = Alignment.topCenter;
                 map['end'] = Alignment.bottomCenter;
-                break;
               case GradientDirection.btt:
                 map['begin'] = Alignment.bottomCenter;
                 map['end'] = Alignment.topCenter;
-                break;
               default:
                 map['begin'] = Alignment.centerLeft;
                 map['end'] = Alignment.centerRight;
-                break;
             }
             return LinearGradient(
               begin: map['begin']!,

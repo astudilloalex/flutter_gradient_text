@@ -5,6 +5,7 @@ repository: https://github.com/astudilloalex/flutter_gradient_text
 
 environment:
   sdk: ">=3.0.6 <4.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
