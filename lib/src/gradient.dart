@@ -7,7 +7,7 @@ class GradientText extends StatelessWidget {
   final List<Color> colors;
 
   /// Direction in which the gradient will be displayed.
-  final GradientDirection? gradientDirection;
+  final GradientDirection gradientDirection;
 
   /// The type of gradient to apply.
   final GradientType gradientType;
@@ -62,20 +62,10 @@ class GradientText extends StatelessWidget {
         switch (gradientType) {
           case GradientType.linear:
             final Map<String, Alignment> map = {};
-            switch (gradientDirection) {
-              case GradientDirection.rtl:
-                map['begin'] = Alignment.centerRight;
-                map['end'] = Alignment.centerLeft;
-              case GradientDirection.ttb:
-                map['begin'] = Alignment.topCenter;
-                map['end'] = Alignment.bottomCenter;
-              case GradientDirection.btt:
-                map['begin'] = Alignment.bottomCenter;
-                map['end'] = Alignment.topCenter;
-              default:
-                map['begin'] = Alignment.centerLeft;
-                map['end'] = Alignment.centerRight;
-            }
+            final alignment = gradientDirection.alignment;
+            map['begin'] = alignment.$1;
+            map['end'] = alignment.$2;
+
             return LinearGradient(
               begin: map['begin']!,
               colors: colors,
