@@ -21,7 +21,19 @@ enum GradientDirection {
   rtl,
 
   /// Top to bottom.
-  ttb;
+  ttb,
+
+  /// Bottom left to top right.
+  blttr,
+
+  /// Bottom right to top left.
+  brttl,
+
+  /// Top left to bottom right.
+  tltbr,
+
+  /// Top right to bottom left.
+  trtbl;
 
   (Alignment, Alignment) get alignment {
     return switch (this) {
@@ -29,6 +41,10 @@ enum GradientDirection {
       GradientDirection.ltr => (Alignment.centerLeft, Alignment.centerRight),
       GradientDirection.rtl => (Alignment.centerRight, Alignment.centerLeft),
       GradientDirection.ttb => (Alignment.bottomCenter, Alignment.topCenter),
+      GradientDirection.blttr => (Alignment.bottomLeft, Alignment.topRight),
+      GradientDirection.brttl => (Alignment.bottomRight, Alignment.topLeft),
+      GradientDirection.tltbr => (Alignment.topLeft, Alignment.bottomRight),
+      GradientDirection.trtbl => (Alignment.topRight, Alignment.bottomLeft),
     };
   }
 }
