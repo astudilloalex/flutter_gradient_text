@@ -34,6 +34,9 @@ class GradientText extends StatelessWidget {
   /// Maximum number of lines for the text to span.
   final int? maxLines;
 
+  /// Whether the text should break at soft line breaks.
+  final bool? softWrap;
+
   /// Gradient stops
   final List<double>? stops;
 
@@ -50,6 +53,7 @@ class GradientText extends StatelessWidget {
     this.stops,
     this.textScaleFactor = 1.0,
     this.maxLines,
+    this.softWrap,
   }) : assert(
           colors.length >= 2,
           'Colors list must have at least two colors',
@@ -61,16 +65,13 @@ class GradientText extends StatelessWidget {
       shaderCallback: (Rect bounds) {
         switch (gradientType) {
           case GradientType.linear:
-            final Map<String, Alignment> map = {};
-            final alignment = gradientDirection.alignment;
-            map['begin'] = alignment.$1;
-            map['end'] = alignment.$2;
-
+            final (Alignment beginAlignment, Alignment endAlignment) =
+                gradientDirection.alignment;
             return LinearGradient(
-              begin: map['begin']!,
+              begin: beginAlignment,
               colors: colors,
               stops: stops,
-              end: map['end']!,
+              end: endAlignment,
             ).createShader(bounds);
           case GradientType.radial:
             return RadialGradient(
@@ -88,6 +89,7 @@ class GradientText extends StatelessWidget {
         textScaler: TextScaler.linear(textScaleFactor),
         textAlign: textAlign,
         maxLines: maxLines,
+        softWrap: softWrap,
       ),
     );
   }
