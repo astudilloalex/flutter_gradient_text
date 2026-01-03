@@ -1,3 +1,9 @@
+## 1.4.0
+
+- Require Dart `>=3.7.0` and Flutter `>=3.29.0`, and update lint rules.
+- Replace the deprecated `textScaleFactor` with `TextScaler` and default scaling to `1.0`.
+- Add `softWrap` support plus new diagonal `GradientDirection` options with cleaner alignment handling.
+
 ## 1.3.0
 
 - Update `dart` version to `>3.0.6`.

@@ -1,5 +1,6 @@
+[![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
 # gradient_text
-Requires Flutter `>=3.0.0`
+Requires Flutter `>=3.29.0`
 
 Create gradient texts simply and quickly.
 
@@ -10,7 +11,7 @@ Only add [simple_gradient_text](https://pub.dev/packages/simple_gradient_text) p
 
 ```yaml
 dependencies:
-  simple_gradient_text: 1.3.0
+  simple_gradient_text: 1.4.0
 ```
 Then run `flutter get --no-example`.
 
