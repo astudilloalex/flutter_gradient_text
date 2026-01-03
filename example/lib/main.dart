@@ -17,30 +17,74 @@ class MyApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              GradientText(
-                'Gradient Text Example',
-                style: const TextStyle(
-                  fontSize: 40.0,
-                ),
-                colors: const [
-                  Colors.blue,
-                  Colors.red,
-                  Colors.teal,
+              Row(
+                children: [
+                  const Text(
+                    'Linear ',
+                    style: TextStyle(fontSize: 40.0),
+                  ),
+                  // This is an example for `LinearGradient` with default direction
+                  GradientText(
+                    'Gradient',
+                    style: const TextStyle(
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    colors: const [
+                      Colors.blue,
+                      Colors.red,
+                      Colors.teal,
+                    ],
+                  ),
                 ],
               ),
-              // This is a example for RadialGradient
-              // Use Radius when use radial gradient text
-              GradientText(
-                'Gradient Text Example',
-                style: const TextStyle(
-                  fontSize: 40.0,
-                ),
-                gradientType: GradientType.radial,
-                radius: 2.5,
-                colors: const [
-                  Colors.blue,
-                  Colors.red,
-                  Colors.teal,
+              Row(
+                children: [
+                  const Text(
+                    'Linear ',
+                    style: TextStyle(fontSize: 40.0),
+                  ),
+                  // This is an example for `LinearGradient` with custom diagonal direction
+                  // brttl = Bottom Right To Top Left
+                  // The diagonal directions are only distinguishable from there axis
+                  // counterparts when the text is quite short
+                  GradientText(
+                    'Gradient',
+                    style: const TextStyle(
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    gradientDirection: GradientDirection.tltbr,
+                    colors: const [
+                      Colors.blue,
+                      Colors.red,
+                      Colors.teal,
+                    ],
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  const Text(
+                    'Linear ',
+                    style: TextStyle(fontSize: 40.0),
+                  ),
+                  // This is an example for `RadialGradient`
+                  // Use Radius when use radial gradient text
+                  GradientText(
+                    'Gradient',
+                    style: const TextStyle(
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    gradientType: GradientType.radial,
+                    radius: 2.5,
+                    colors: const [
+                      Colors.blue,
+                      Colors.red,
+                      Colors.teal,
+                    ],
+                  ),
                 ],
               ),
             ],
